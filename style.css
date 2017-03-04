@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+}
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+img {
+    width: 100%;
+}
+
+nav {
+    background-color: #FFF;
+    padding-left: 20px;
+    display: table-row;
+}
+
+nav span.logo img {
+    width: 76px;
+}
+
+nav span.logo {
+    display: table-cell;
+    width: 120.6px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+nav span {
+    display: table-cell;
+    width: 180.6px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+main {
+    width: 1024px;
+    height: 580px;
+    background-image: url('http://placehold.it/1024x580');
+    position: relative;
+}
+
+main .logo {
+    position: relative;
+    width: 284px;
+    height: 190px;
+    top: 100px;
+    left: 70px;
+}
+
+main .play-btn {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    margin: -235px auto;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+main .bottle {
+    position: absolute;
+    width: 235px;
+    height: 550px;
+    right: 50px;
+    bottom: -75px;   
+}
+
+section.subtitle {
+    background-color: #888;
+    height: 100px;
+    font-style: italic;
+    padding-left: 30px;
+    margin-top: -16px;
+}
+
+section.videos {
+    padding: 0 35px;
+    background-color: #CCC;
+}
+
+section.videos section.video {
+    display: inline-block;
+    padding: 15px 30px;
+    width: 254px;
+    text-align: center;
+}
+
+section.videos section.video p {
+    margin: 5px 0 0 0;
+}
+
+footer {
+    background-color: #888;
+    height: 670px;
+    position: relative;
+}
+
+footer .logo {
+    position: relative;
+    width: 180px;
+    left: 70px;
+    top: 95px;
+}
+
+footer .bottle {
+    position: absolute;
+    width: 212px;
+    left: 406px;
+    bottom: 50px;
+}
+
+footer .lemon-grass {
+    position: absolute;
+    width: 370px;
+    right: 114px;
+    top: 42px;
+}
+
+footer .lemon {
+    position: absolute;
+    width: 436px;
+    left: 46px;
+    top: 318px;
+}
+
+footer .peppermint {
+    position: absolute;
+    width: 188px;
+    right: 245px;
+    bottom: 141px;
+}
+
+/*
+.video {
+    height: 500px;
+    width: 100%;
+    background-color: #000;
+}
+
+.play-button {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    position: relative;
+    top: 50%;
+    margin: -100px auto;
+}
+*/
