@@ -43,13 +43,33 @@
                 <p>Product Video</p>
             </section>
         </section>
-        <footer>
-            <img class="flying lemon-grass" src="http://placehold.it/370x290/0FF">
-            <img class="flying lemon" src="http://placehold.it/436x280/0F0">
-            <img class="flying peppermint" src="http://placehold.it/188x182/00F">
+        <footer id="footer">
+            <img id="lemon-grass" src="http://placehold.it/370x290/0FF">
+            <img id="lemon" src="http://placehold.it/436x280/0F0">
+            <img id="peppermint" src="http://placehold.it/188x182/00F">
             <img class="logo" src="http://placehold.it/180x200/F00">
             <img class="bottle" src="http://placehold.it/212x526/F00">
         </footer>
     </div>
+    <script>
+        function parallax(el, triggerElem, speed, goalTop) {
+            var vh = (window.innerHeight || document.documentElement.clientHeight);
+            var diff = triggerElem.getBoundingClientRect().bottom - vh;
+            var diffWithSpeed = diff * speed;
+            el.style.top = (goalTop + diffWithSpeed) + "px";
+        }
+
+        (function() {
+            var lemonGrass = document.getElementById("lemon-grass");
+            var lemon = document.getElementById("lemon");
+            var peppermint = document.getElementById("peppermint");
+            var footer = document.getElementById("footer");
+            window.onscroll = function() {
+                parallax(lemonGrass, footer, -1, 42);
+                parallax(lemon, footer, 0.5, 318);
+                parallax(peppermint, footer, 1.5, 348);
+            };
+        })();
+    </script>
 </body>
 </html>

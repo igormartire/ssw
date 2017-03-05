@@ -96,6 +96,7 @@ footer {
     background-color: #888;
     height: 670px;
     position: relative;
+    z-index: -2;
 }
 
 footer .logo {
@@ -112,21 +113,22 @@ footer .bottle {
     bottom: 50px;
 }
 
-footer .lemon-grass {
+footer #lemon-grass {
     position: absolute;
     width: 370px;
     right: 114px;
     top: 42px;
+    z-index: -1;
 }
 
-footer .lemon {
+footer #lemon {
     position: absolute;
     width: 436px;
     left: 46px;
     top: 318px;
 }
 
-footer .peppermint {
+footer #peppermint {
     position: absolute;
     width: 188px;
     right: 245px;
