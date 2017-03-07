@@ -9,7 +9,7 @@
     <div class="container">
         <nav>
             <span class="logo">
-                <img src="images/main_logo.png">
+                <img src="images/main_logo_rgb.png">
             </span>
             <span>Home</span>
             <span>Products</span>
@@ -21,6 +21,11 @@
             <!--<img class="logo" src="images/main_logo.png">-->
             <div class="play-btn"></div>
             <!--<img class="bottle" src="images/main_bottle.png">-->
+            <legend>
+                "A non-toxic, all-natural, and unique fly spray.
+                It's not only good for your horse — it's good for
+                you, the rider."
+            </legend>
         </main>
         <!--<section class="subtitle">
             <p>
@@ -31,7 +36,7 @@
         </section>-->
         <section class="videos">
             <div class="video">
-                <img class="logo" src="images/video1.jpeg">
+                <img class="logo" src="images/video1_rgb.jpg">
                 <p>How It Works!</p>
             </div>
             <div class="video">
@@ -44,20 +49,26 @@
             </div>
         </section>
         <footer id="footer">
-            <img id="lemon-grass" src="images/lemon_grass.png">
-            <img id="lemon" src="images/lemons.png">
-            <img id="peppermint" src="images/peppermint.png">
-            <img class="logo" src="images/main_logo.png">
+            <img id="lemon-grass" src="images/lemon_grass_rgb.png">
+            <img id="lemon" src="images/lemons_rgb.png">
+            <img id="peppermint" src="images/peppermint_rgb.png">
+            <img class="logo" src="images/main_logo_rgb.png">
             <img class="sub-logo" src="images/fly_away.png">
-            <img class="bottle" src="images/footer_bottle.png">
+            <img class="bottle" src="images/footer_bottle_rgb.png">
         </footer>
     </div>
     <script>
-        function parallax(el, triggerElem, speed, goalTop) {
+        function parallaxV(el, triggerElem, speed, goalTop) {
             var vh = (window.innerHeight || document.documentElement.clientHeight);
             var diff = triggerElem.getBoundingClientRect().bottom - vh;
             var diffWithSpeed = diff * speed;
             el.style.top = (goalTop + diffWithSpeed) + "px";
+        }
+        function parallaxH(el, triggerElem, speed, goalRight) {
+            var vh = (window.innerHeight || document.documentElement.clientHeight);
+            var diff = triggerElem.getBoundingClientRect().bottom - vh;
+            var diffWithSpeed = diff * speed;
+            el.style.right = (goalRight + diffWithSpeed) + "px";
         }
 
         (function() {
@@ -66,9 +77,9 @@
             var peppermint = document.getElementById("peppermint");
             var footer = document.getElementById("footer");
             window.onscroll = function() {
-                parallax(lemonGrass, footer, -1, 50);
-                parallax(lemon, footer, 0.5, 290);
-                parallax(peppermint, footer, 1.5, 348);
+                parallaxV(lemonGrass, footer, -1, 50);
+                parallaxH(lemon, footer, 0.5, 549);
+                parallaxH(peppermint, footer, -0.8, 245);
             };
         })();
     </script>
