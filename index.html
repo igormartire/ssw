@@ -36,7 +36,7 @@
         </section>-->
         <section class="videos">
             <div class="video">
-                <img class="logo" src="images/video1_rgb.jpg">
+                <img class="logo" src="images/video1.jpeg">
                 <p>How It Works!</p>
             </div>
             <div class="video">
@@ -61,13 +61,16 @@
         function parallaxV(el, triggerElem, speed, goalTop) {
             var vh = (window.innerHeight || document.documentElement.clientHeight);
             var diff = triggerElem.getBoundingClientRect().bottom - vh;
-            var diffWithSpeed = diff * speed;
+            var easing = diff/(2*vh);
+            var diffWithSpeed = diff * easing*speed;
             el.style.top = (goalTop + diffWithSpeed) + "px";
         }
+        
         function parallaxH(el, triggerElem, speed, goalRight) {
             var vh = (window.innerHeight || document.documentElement.clientHeight);
             var diff = triggerElem.getBoundingClientRect().bottom - vh;
-            var diffWithSpeed = diff * speed;
+            var easing = (vh-diff)/(2*vh);
+            var diffWithSpeed = diff * easing*speed;
             el.style.right = (goalRight + diffWithSpeed) + "px";
         }
 
@@ -78,8 +81,8 @@
             var footer = document.getElementById("footer");
             window.onscroll = function() {
                 parallaxV(lemonGrass, footer, -1, 50);
-                parallaxH(lemon, footer, 0.5, 549);
-                parallaxH(peppermint, footer, -0.8, 245);
+                parallaxH(lemon, footer, -1.2, 549);
+                parallaxH(peppermint, footer, 1.2, 245);
             };
         })();
     </script>
