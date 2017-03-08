@@ -8,9 +8,34 @@
        url('fonts/bakery_paradise.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background-color: #CCC;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 680px) {
+    body {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 380px) {
+    body {
+        font-size: 8px;
+    }
+}
+
+img {
+    width: 100%;
 }
 
 .container {
@@ -18,45 +43,51 @@ body {
     margin: 0 auto;
 }
 
-img {
-    width: 100%;
-}
+/**
+ * NAVBAR
+ */
+
 
 nav {
     background-color: #FFF;
-    padding-left: 70px;
-}
-
-nav span.logo {
-    width: 80px;
     text-align: center;
-    height: 60px;
-}
-
-nav span.logo img {
-    width: 76px;
-    vertical-align: middle;
 }
 
 nav span {
     display: inline-block;
-    width: 160.6px;
+    width: 15%;
     font-family: 'BakeryParadise';
     font-size: 1.9em;
-    text-align: center;
+    /*text-align: center;*/
     margin-top: 10px;
     vertical-align: bottom;
 }
 
+nav span.logo {
+    width: 15%;
+    text-align: center;
+    /*height: 60px;*/
+}
+
+nav span.logo img {
+    max-width: 76px;
+    vertical-align: middle;
+}
+
+/**
+ * MAIN
+ */
+
 main {
-    height: 669px;
+    /*height: 669px;*/
+    position: relative;
+    padding-top: 65.33203125%; /* aspect ratio */
     background-image: url('images/main_rgb.png');
     background-size: cover;
-    position: relative;
 }
 
 main .logo {
-    position: relative;
+    position: absolute;
     width: 230px;
     /*height: 190px;*/
     top: 100px;
@@ -64,11 +95,12 @@ main .logo {
 }
 
 main .play-btn {
-    position: relative;
+    position: absolute;
     width: 75px;
     height: 75px;
     top: 20%;
-    margin: 0 auto;
+    left: 50%;
+    margin: 0 -37.5px;
     background-image: url('images/play_button.png');
     background-size: cover;
     opacity: 0.8;
@@ -89,36 +121,37 @@ main .bottle {
 
 main legend {
     position: absolute;
-    left: 50px;
-    bottom: 60px;
+    right: 20.23925781%;
+    top: 88.34080717%;
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
+    text-align: right;
 }
 
-section.subtitle {
+/*section.subtitle {
     background-color: #888;
     height: 100px;
     font-style: italic;
     padding-left: 30px;
     margin-top: -16px;
-}
+}*/
+
+/**
+ * VIDEOS BAR
+ */
 
 section.videos {
-    padding: 0 35px;
     background-image: url('images/wood.jpg');
     background-size: cover;
-    height: 238px;
+    /*height: 238px;*/
+    text-align: center;
 }
 
 section.videos div.video {
     display: inline-block;
-    padding: 15px 30px 5px;
-    width: 255px;
-    height: 173px;
-}
-
-section.videos div.video img {
-    height: 100%;
+    padding: 1.5% 3% 0.5%;
+    width: 32%;
+    vertical-align: top;
 }
 
 section.videos div.video p {
@@ -128,9 +161,14 @@ section.videos div.video p {
     text-align: center;
 }
 
+/**
+ * FOOTER
+ */
+
 footer {
     position: relative;
-    height: 670px;
+    /*height: 670px*/
+    padding-top: 65.4296875%; /* aspect ratio */
     background-image: url('images/footer_bg_rgb.png');
     background-size: cover;
     z-index: -2;
@@ -138,61 +176,60 @@ footer {
 
 footer .logo {
     position: absolute;
-    width: 160px;
+    /*width: 160px;
     left: 66px;
-    top: 84px;
+    top: 84px;*/
+    width: 15.625%;
+    left: 6.4453125%;
+    top: 12.53731343%;
 }
 
 footer .sub-logo {
     position: absolute;
-    width: 160px;
+    /*width: 160px;
     left: 66px;
-    top: 198px;
+    top: 198px;*/
+    width: 15.625%;
+    left: 6.4453125%;
+    top: 29.55223881%;
 }
 
 footer .bottle {
     position: absolute;
-    width: 212px;
+    /*width: 212px;
     left: 406px;
-    bottom: 60px;
+    bottom: 60px;*/
+    width: 20.703125%;
+    left: 39.6484375%;
+    bottom: 5.859375%;
 }
 
 footer #lemon-grass {
     position: absolute;
-    width: 260px;
+    /*width: 260px;
     right: 220px;
-    top: 50px;
+    top: 50px;*/
+    width: 25.390625%;
+    right: 21.484375%;
+    top: 7.462686567%;
     z-index: -1;
 }
 
 footer #lemon {
     position: absolute;
-    width: 300px;
+    /*width: 300px;
     right: 549px;
-    top: 290px;
+    top: 290px;*/
+    width: 29.296875%;
+    right: 53.61328125%;
+    top: 43.28358209%;
+    z-index: -1;
 }
 
 footer #peppermint {
     position: absolute;
-    width: 188px;
-    right: 245px;
-    bottom: 141px;
+    width: 18.359375%;
+    right: 23.92578125%;
+    bottom: 21.04477612%;
+    z-index: -1;
 }
-
-/*
-.video {
-    height: 500px;
-    width: 100%;
-    background-color: #000;
-}
-
-.play-button {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
-    position: relative;
-    top: 50%;
-    margin: -100px auto;
-}
-*/

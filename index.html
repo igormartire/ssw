@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
@@ -8,14 +9,15 @@
 <body>
     <div class="container">
         <nav>
-            <span class="logo">
+            <span class="logo" style="width: 13%;">        <!-- 60px  - 60/495  = 0.1212121212 -->
                 <img src="images/main_logo_rgb.png">
             </span>
-            <span>Home</span>
-            <span>Products</span>
-            <span>Our Story</span>
-            <span>News</span>
-            <span>Online Store</span>
+            <span style="width: 13%">Home</span>          <!-- 58  - 58/495  = 0.1171717172 -->
+            <span style="width: 16%">Products</span>     <!-- 86  - 86/495  = 0.1737373737 -->
+            <span style="width: 19%" >Our Story</span>   <!-- 97  - 97/495  = 0.195959596 -->
+            <span style="width: 12%">News</span>          <!-- 56  - 56/495  = 0.1131313131 -->
+            <span style="width: 22%">Online Store</span> <!-- 118 - 118/495 = 0.2383838384 -->
+                                                                            <!-- Total: 495 -->
         </nav>
         <main>
             <!--<img class="logo" src="images/main_logo.png">-->
@@ -23,8 +25,7 @@
             <!--<img class="bottle" src="images/main_bottle.png">-->
             <legend>
                 "A non-toxic, all-natural, and unique fly spray.
-                It's not only good for your horse — it's good for
-                you, the rider."
+                It's&nbsp;not&nbsp;only&nbsp;good&nbsp;for&nbsp;your&nbsp;horse&nbsp;—&nbsp;it's&nbsp;good&nbsp;for&nbsp;you,&nbsp;the&nbsp;rider."
             </legend>
         </main>
         <!--<section class="subtitle">
@@ -62,16 +63,18 @@
             var vh = (window.innerHeight || document.documentElement.clientHeight);
             var diff = triggerElem.getBoundingClientRect().bottom - vh;
             var easing = diff/(2*vh);
-            var diffWithSpeed = diff * easing*speed;
-            el.style.top = (goalTop + diffWithSpeed) + "px";
+            var speedScaledForPercentValues = speed / 10.24;
+            var diffWithSpeed = diff * speedScaledForPercentValues * easing;
+            el.style.top = (goalTop + diffWithSpeed) + "%";
         }
-        
+
         function parallaxH(el, triggerElem, speed, goalRight) {
             var vh = (window.innerHeight || document.documentElement.clientHeight);
             var diff = triggerElem.getBoundingClientRect().bottom - vh;
             var easing = (vh-diff)/(2*vh);
-            var diffWithSpeed = diff * easing*speed;
-            el.style.right = (goalRight + diffWithSpeed) + "px";
+            var speedScaledForPercentValues = speed / 10.24;
+            var diffWithSpeed = diff * speedScaledForPercentValues * easing;
+            el.style.right = (goalRight + diffWithSpeed) + "%";
         }
 
         (function() {
@@ -80,9 +83,9 @@
             var peppermint = document.getElementById("peppermint");
             var footer = document.getElementById("footer");
             window.onscroll = function() {
-                parallaxV(lemonGrass, footer, -1, 50);
-                parallaxH(lemon, footer, -1.2, 549);
-                parallaxH(peppermint, footer, 1.2, 245);
+                parallaxV(lemonGrass, footer, -1, 7.462686567);
+                parallaxH(lemon, footer, -1.2, 53.61328125);
+                parallaxH(peppermint, footer, 1.2, 23.92578125);
             };
         })();
     </script>
