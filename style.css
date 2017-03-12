@@ -367,8 +367,8 @@ figure .tooltip {
     width: 44%;
     left: 28%;
     top: 30%;
-    z-index: -2;
-    transition: opacity 600ms ease;
+    z-index: 1;
+    transition: opacity 800ms ease;
 }
 
 @media screen and (max-width: 580px) {
@@ -379,7 +379,6 @@ figure .tooltip {
     }
 }
 
-figure:hover .tooltip {
-    z-index: 1;
+figure img:hover ~ .tooltip, figure figcaption:hover ~ .tooltip {
     opacity: 0.8;
 }
