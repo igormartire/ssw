@@ -16,6 +16,7 @@ body {
     margin: 0;
     background-color: #CCC;
     font-size: 16px;
+    font-family: 'BakeryParadise';
 }
 
 a {
@@ -70,7 +71,6 @@ nav {
 nav a {
     display: inline-block;
     width: 15%;
-    font-family: 'BakeryParadise';
     font-size: 1.9em;
     /*text-align: center;*/
     margin-top: 10px;
@@ -110,14 +110,22 @@ main .logo {
 
 main .play-btn {
     position: absolute;
-    width: 75px;
-    height: 75px;
+    width: 7.3%;
+    padding-top: 7.3%;
     top: 20%;
     left: 50%;
-    margin: 0 -37.5px;
+    margin: 0 -3.65%;
     background-image: url('images/play_button.png');
     background-size: cover;
     opacity: 0.8;
+}
+
+@media screen and (max-width: 680px) {
+    main .play-btn {
+        width: 10%;
+        padding-top: 10%;
+        margin: 0 -5%;
+    }
 }
 
 main .play-btn:hover {
@@ -193,7 +201,6 @@ section.videos {
 
 .videos p {
     margin: 10px 0 0;
-    font-family: 'BakeryParadise';
     font-size: 1.8em;
     text-align: center;
 }
@@ -202,6 +209,22 @@ section.videos {
  * FOOTER
  */
 
+@media screen and (max-width: 880px) {
+    footer {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 780px) {
+    footer {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 680px) {
+    figcaption {
+        display: none;
+    }
+}
+
 footer {
     position: relative;
     /*height: 670px*/
@@ -209,6 +232,12 @@ footer {
     background-image: url('images/footer_bg_rgb.png');
     background-size: cover;
     overflow: hidden;
+
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
 }
 
 footer .logo {
@@ -232,7 +261,21 @@ footer .bottle {
     bottom: 8.859375%;
 }
 
-footer #eucalyptus {
+figure {
+    margin: 0;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+figure img {
+    transition: filter 600ms ease;
+}
+
+figure figcaption {
+    transition: filter 600ms ease;
+}
+
+#eucalyptus {
     position: absolute;
     width: 17.18%;
     top: 1.5%;
@@ -240,34 +283,103 @@ footer #eucalyptus {
     /*z-index: -1;*/
 }
 
-footer #acv {
+footer figure:hover img, footer figure:hover figcaption{
+    -webkit-filter: drop-shadow(1px 1px 0 #FF8900)
+		drop-shadow(-1px 1px 0 #FF8900)
+		drop-shadow(1px -1px 0 #FF8900)
+      	drop-shadow(-1px -1px 0 #FF8900);
+
+	filter: drop-shadow(1px 1px 0 #FF8900) 
+		drop-shadow(-1px 1px 0 #FF8900)
+		drop-shadow(1px -1px 0 #FF8900)
+       	drop-shadow(-1px -1px 0 #FF8900);
+
+    cursor: pointer;
+}
+
+footer figure:active img, footer figure:active figcaption {
+    -webkit-filter: drop-shadow(1px 1px 0 #F23C00)
+		drop-shadow(-1px 1px 0 #F23C00)
+		drop-shadow(1px -1px 0 #F23C00)
+      	drop-shadow(-1px -1px 0 #F23C00);
+
+	filter: drop-shadow(1px 1px 0 #F23C00) 
+		drop-shadow(-1px 1px 0 #F23C00)
+		drop-shadow(1px -1px 0 #F23C00)
+       	drop-shadow(-1px -1px 0 #F23C00);
+
+    cursor: pointer;
+}
+
+#eucalyptus figcaption {
     position: absolute;
+    left: -60%;
+    top: 33%;
+}
+
+#acv {
+    position: absolute;
+    display: block;
     width: 10%;
     top: 33%;
     right: 87%;
-    /*z-index: -1;*/
 }
 
-footer #lemon-grass {
+#lemon-grass {
     position: absolute;
     width: 25.390625%;
     top: 1%;
     right: 14.5%;
-    /*z-index: -1;*/
 }
 
-footer #lemon {
+#lemon-grass figcaption {
+    position: absolute;
+    right: -40%;
+    top: 33%;
+}
+
+#lemon {
     position: absolute;
     width: 29.296875%;
     top: 30.3%;
     right: 1%;
-    /*z-index: -1;*/
 }
 
-footer #peppermint {
+#peppermint {
     position: absolute;
     width: 18.359375%;
     top: 39%;
     right: 60%;
-    /*z-index: -1;*/
+}
+
+figure .tooltip {
+    position: fixed;
+    text-align: center;
+    padding: 2em;
+    border: 3px solid black;
+    border-radius: 6px;
+    background-color: white;
+    color: black;
+    opacity: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 0.8em;
+    width: 44%;
+    left: 28%;
+    top: 30%;
+    z-index: -2;
+    transition: opacity 600ms ease;
+}
+
+@media screen and (max-width: 580px) {
+    figure .tooltip {
+        top: 25%;
+        width: 60%;
+        left: 20%;
+    }
+}
+
+figure:hover .tooltip {
+    z-index: 1;
+    opacity: 0.8;
 }
