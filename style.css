@@ -105,7 +105,7 @@ nav .buy-btn {
     font-size: 1.9em;
     float: right;
     /*position: absolute;*/
-    background-color: #FF9945;
+    background-color: #FF5C00;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -113,13 +113,13 @@ nav .buy-btn {
     font-family: arial;
     font-size: 1.1em;
     cursor: pointer;
-    box-shadow: 3px 3px 1px 0px #DF6925;
+    box-shadow: 3px 3px 1px 0px #CF0C00;
     transition: all 500ms ease;
     /*right: 2%;*/
 }
 
 nav .buy-btn:hover {
-    background-color: #FFC985;
+    background-color: #FF9C50;
     /*box-shadow: 3px 3px 1px 0px #F23C00;*/
 }
 
@@ -132,16 +132,15 @@ main {
     /*height: 669px;*/
     position: relative;
     padding-top: 65.33203125%; /* aspect ratio */
-    background-image: url('images/main_rgb.png');
+    background-image: url('images/main_bg.jpg');
     background-size: cover;
 }
 
 main .logo {
     position: absolute;
-    width: 230px;
-    /*height: 190px;*/
-    top: 100px;
-    left: 70px;
+    width: 22.5%;
+    top: 14%;
+    left: 6.5%;
 }
 
 main .play-btn {
@@ -171,10 +170,9 @@ main .play-btn:hover {
 
 main .bottle {
     position: absolute;
-    width: 190px;
-    /*height: 550px;*/
-    right: 50px;
-    bottom: -75px;   
+    width: 40%;
+    right: -5%;
+    bottom: -6%;   
 }
 
 main legend {
@@ -210,6 +208,7 @@ main legend {
     background-color: rgba(255, 255, 255, 0.75);
     box-shadow: 0px 0px 15px 3px #888;
     padding: 10px;
+    padding-right: 30px;
 }
 
 .about .wrapper::after {
@@ -221,7 +220,7 @@ main legend {
 .about .shelley {
     float: left;
     width: 300px;
-    margin-right: 50px;
+    margin-right: 30px;
 }
 
 .about .signature {
@@ -306,9 +305,8 @@ section.videos {
 
 #product {
     position: relative;
-    /*height: 670px*/
-    padding-top: 70.89%; /* aspect ratio */
-    background-image: url('images/product_bg_rgb.png');
+    padding-top: 69.04%; /* aspect ratio */
+    background-image: url('images/product_bg.jpg');
     background-size: cover;
     overflow: hidden;
 
@@ -337,7 +335,7 @@ section.videos {
     position: absolute;
     width: 20.703125%;
     left: 39.6484375%;
-    bottom: 8.859375%;
+    bottom: 6%;
 }
 
 figure {
@@ -464,7 +462,7 @@ figure img:hover ~ .tooltip, figure figcaption:hover ~ .tooltip {
 
 #product .btn {
     position: absolute;
-    bottom: 14.5%;
+    bottom: 12.5%;
     float: right;
     color: white;
     border: none;
