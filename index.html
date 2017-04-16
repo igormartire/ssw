@@ -4,26 +4,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Document</title>
+    <title>Shelley Says!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <nav>
-            <a class="logo" style="width: 13%;" href="#">        <!-- 60px  - 60/495  = 0.1212121212 -->
+            <a class="logo" style="width: 17%; padding-left: 1%" href="#">
                 <img src="images/main_logo_rgb.png">
             </a>
-            <a style="width: 13%" href="#">Home</a>          <!-- 58  - 58/495  = 0.1171717172 -->
-            <a style="width: 16%" href="#">Products</a>     <!-- 86  - 86/495  = 0.1737373737 -->
-            <a style="width: 19%" href="#">Our Story</a>   <!-- 97  - 97/495  = 0.195959596 -->
-            <a style="width: 12%" href="#">News</a>          <!-- 56  - 56/495  = 0.1131313131 -->
-            <a style="width: 22%" href="#">Online Store</a> <!-- 118 - 118/495 = 0.2383838384 -->
-                                                                            <!-- Total: 495 -->
+            <!-- 58  -->
+            <!--<a style="width: 14%" href="#">Home</a>-->
+            <!-- 86  -->
+            <!--<a style="width: 16%" href="#">Products</a>      -->
+            <!-- 97 -->
+            <!--<a style="width: 24%" href="#">Our Story</a>-->
+            <!-- 56 -->
+            <!--<a style="width: 14%" href="#">Blog</a>-->
+            <!-- 118 -->
+            <!--<a style="width: 27%" href="#">Online Store</a>-->
+            <button class="buy-btn" onclick="clickBuyButton(event)">Buy now: $29.99</button>
+            <a class="text" href="#">Contact us</a>
+            <a class="text" href="#">Visit our blog</a>
+            <!-- Total: 409 -->
         </nav>
         <div>
             <main>
                 <!--<img class="logo" src="images/main_logo.png">-->
-                <div class="play-btn"></div>
+                <!--<div class="play-btn"></div>-->
                 <!--<img class="bottle" src="images/main_bottle.png">-->
                 <legend>
                     "A non-toxic, all-natural, and unique fly spray.
@@ -38,7 +46,22 @@
                 you, the rider"
             </p>
         </section>-->
-        <section class="videos">
+        <section class="about">
+            <div class="wrapper">
+                <img class="shelley" src="images/shelley-horse.png" alt="Shelley and her horse">
+                <h2>About us</h2>
+                <p>
+                    I have been an equestrian for over two decades.
+                    I became tired of using toxic, dangerous and environmentally harmful fly sprays on my horses.
+                    Using my background in essential oils and holistic treatments,
+                    I created Shelley Says! Fly Away!, a non-toxic, all-natural, and unique fly spray.
+                    It’s not only good for your horse—it’s good for you, the rider.
+                    It’s made with love and kindness from one horse lover to another.
+                </p>
+                <img class="signature" src="images/signature.png" alt="Shelley's signature">
+            </div>
+        </section>
+        <!--<section class="videos">
             <a href="#">
                 <div class="video">
                     <div class="img-frame">
@@ -63,8 +86,8 @@
                     <p>Product Video</p>
                 </div>
             </a>
-        </section>
-        <footer id="footer">
+        </section>-->
+        <section id="product">
             <figure id="eucalyptus">
                 <figcaption>Eucalyptus</figcaption>
                 <img src="images/eucalyptus.png">
@@ -75,7 +98,7 @@
             </figure>
             <figure id="acv">
                 <img src="images/acv.png">
-                <figcaption>Apple Cider Vinegar</figcaption>
+                <figcaption>Citronella Oil</figcaption>
                 <span class="tooltip">
                     <strong>Citronella Oil:</strong>
                     a known insect repellent.
@@ -83,7 +106,7 @@
             </figure>
             <figure id="lemon-grass">
                 <img src="images/lemon_grass_rgb.png">
-                <figcaption>Lemon grass</figcaption>
+                <figcaption>Lemongrass</figcaption>
                 <span class="tooltip">
                     <strong>Lemongrass Oil:</strong>
                     has insecticidal properties.
@@ -106,10 +129,41 @@
                 </span>
             </figure>
             <img class="fly-away" src="images/fly_away.png">
-            <img class="bottle" src="images/footer_bottle_rgb.png">
+            <img class="bottle" src="images/product_bottle_rgb.png">
+            <!--<span>
+                All natural, made with five essential oils; citronella, lemon grass,
+                peppermint, eucalyptus, and lemon, no artificial chemicals, and 100% love.
+                Developed by Shelley McVicar for her own horse as an alternative to toxic products,
+                Shelley, a yoga instructor and lives a holistic lifestyle began selling Shelley Says
+                to horse trainers and friends who swore about its efficacy...so the wait is over, Shelley Says!
+                is now available to you.
+            </span>-->
+            <button class="btn more">Learn more</button>
+            <button class="btn buy" onclick="clickBuyButton(event)">Buy: $29.99</button>
+
+            <!--<div id="product-component-a77fd9ce4f"></div>-->
+        </section>
+        <footer>
+
         </footer>
     </div>
+    <script src="shopify.js"></script>
     <script>
+        function clickBuyButton(e) {
+            window.frames["frame-product-8235973251"].document.getElementsByClassName("shopify-buy__btn")[0].click();
+            // window.frames["frame-toggle"].document.getElementsByClassName("shopify-buy__cart-toggle")[0].click();
+            console.log(document.getElementsByClassName("shopify-buy-cart-wrapper")[0].className);
+            document.getElementsByClassName("shopify-buy-cart-wrapper")[0].className += " is-active";
+            console.log(document.getElementsByClassName("shopify-buy-cart-wrapper")[0].className);
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+            //IE8 and Lower
+            else {
+                e.cancelBubble = true;
+            }
+        }
+
         function parallaxV(el, triggerElem, speed, goalTop) {
             var vh = (window.innerHeight || document.documentElement.clientHeight);
             var diff = triggerElem.getBoundingClientRect().bottom - vh;
@@ -134,13 +188,13 @@
             var peppermint = document.getElementById("peppermint");
             var acv = document.getElementById("acv");
             var eucalyptus = document.getElementById("eucalyptus");
-            var footer = document.getElementById("footer");
+            var section = document.getElementById("product");
             window.onscroll = function() {
-                parallaxV(lemonGrass, footer, -2.5, 1);
-                parallaxV(eucalyptus, footer, -1.3, 1.5);
-                parallaxV(peppermint, footer, 2, 39);
-                parallaxH(acv, footer, 3, 87);
-                parallaxH(lemon, footer, -1.2, 1);
+                parallaxV(lemonGrass, section, -2.5, 1);
+                parallaxV(eucalyptus, section, -1.3, 1.5);
+                parallaxV(peppermint, section, 2, 39);
+                parallaxH(acv, section, 3, 87);
+                parallaxH(lemon, section, -1.2, 1);
             };
         })();
     </script>
