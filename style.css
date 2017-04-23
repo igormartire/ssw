@@ -533,7 +533,6 @@ figure img:hover ~ .tooltip, figure figcaption:hover ~ .tooltip {
     top: 5%;
     width: 25%;
     bottom: initial;
-    padding: 1.5% 3%;
     background-color: #FF9945;
     font-size: 1.6em;
     box-shadow: -2px 3px 5px 1px #DF6925;
@@ -544,6 +543,7 @@ figure img:hover ~ .tooltip, figure figcaption:hover ~ .tooltip {
 
 #product .btn.see-ingredients:hover {
     background-color: #FFC985;
+    transition: visibility 0s 0.5s linear, opacity 0.5s ease;
 }
 
 #product .btn.buy {
@@ -572,6 +572,12 @@ figure img:hover ~ .tooltip, figure figcaption:hover ~ .tooltip {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s 2s linear, opacity 2s ease;
+}
+
+@media screen and (min-width: 1024px) {
+    #product .learn-more-box {
+        bottom: 35%;
+    }
 }
 
 @media screen and (max-width: 580px) {
@@ -615,7 +621,7 @@ figure img:hover ~ .tooltip, figure figcaption:hover ~ .tooltip {
 #product.learn-more .btn.learn-more {
     visibility: hidden;
     opacity: 0;
-    transition: none;
+    transition: visibility 0s 0.5s linear, opacity 0.5s ease;
 }
 
 #product.learn-more figure {

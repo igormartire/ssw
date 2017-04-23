@@ -159,9 +159,7 @@
         function clickBuyButton(e) {
             window.frames["frame-product-8235973251"].document.getElementsByClassName("shopify-buy__btn")[0].click();
             // window.frames["frame-toggle"].document.getElementsByClassName("shopify-buy__cart-toggle")[0].click();
-            console.log(document.getElementsByClassName("shopify-buy-cart-wrapper")[0].className);
             document.getElementsByClassName("shopify-buy-cart-wrapper")[0].className += " is-active";
-            console.log(document.getElementsByClassName("shopify-buy-cart-wrapper")[0].className);
             if (e.stopPropagation) {
                 e.stopPropagation();
             }
