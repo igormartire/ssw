@@ -24,7 +24,7 @@
             <!--<a style="width: 27%" href="#">Online Store</a>-->
             <button class="buy-btn" onclick="clickBuyButton(event)">Buy now: $29.99</button>
             <a class="text" href="#">Contact us</a>
-            <a class="text" href="#">Visit our blog</a>
+            <a class="text" href="#">Our blog</a>
             <!-- Total: 409 -->
         </nav>
         <div>
@@ -47,17 +47,21 @@
         </section>-->
         <section class="about">
             <div class="wrapper">
-                <img class="shelley" src="images/shelley-horse.png" alt="Shelley and her horse">
-                <h2>About us</h2>
-                <p>
-                    I have been an equestrian for over two decades.
-                    I became tired of using toxic, dangerous and environmentally harmful fly sprays on my horses.
-                    Using my background in essential oils and holistic treatments,
-                    I created Shelley Says! Fly Away!, a non-toxic, all-natural, and unique fly spray.
-                    It’s not only good for your horse—it’s good for you, the rider.
-                    It’s made with love and kindness from one horse lover to another.
-                </p>
-                <img class="signature" src="images/signature.png" alt="Shelley's signature">
+                <div class="left-col">
+                    <img class="shelley" src="images/shelley-horse.png" alt="Shelley and her horse">
+                </div>
+                <div class="right-col">
+                    <h2>About us</h2>
+                    <p>
+                        I have been an equestrian for over two decades.
+                        I became tired of using toxic, dangerous and environmentally harmful fly sprays on my horses.
+                        Using my background in essential oils and holistic treatments,
+                        I created Shelley Says! Fly Away!, a non-toxic, all-natural, and unique fly spray.
+                        It’s not only good for your horse—it’s good for you, the rider.
+                        It’s made with love and kindness from one horse lover to another.
+                    </p>
+                    <img class="signature" src="images/signature.png" alt="Shelley's signature">
+                </div>
             </div>
         </section>
         <!--<section class="videos">
@@ -129,24 +133,29 @@
             </figure>
             <img class="fly-away" src="images/fly_away.png">
             <img class="bottle" src="images/product_bottle.png">
-            <!--<span>
-                All natural, made with five essential oils; citronella, lemon grass,
-                peppermint, eucalyptus, and lemon, no artificial chemicals, and 100% love.
-                Developed by Shelley McVicar for her own horse as an alternative to toxic products,
-                Shelley, a yoga instructor and lives a holistic lifestyle began selling Shelley Says
-                to horse trainers and friends who swore about its efficacy...so the wait is over, Shelley Says!
-                is now available to you.
+            <button class="btn learn-more" onclick="toggleLearnMore()">Learn more</button>
+            <button class="btn see-ingredients" onclick="toggleLearnMore()">See ingredients</button>
+            <!--<span class="tooltip learn-more">
+                <h2>Shelley Says! Fly Away!</h2>
+                <p>
+                    All natural, made with five essential oils; citronella, lemon grass,
+                    peppermint, eucalyptus, and lemon, no artificial chemicals, and 100% love.
+                    Developed by Shelley McVicar for her own horse as an alternative to toxic products,
+                    Shelley, a yoga instructor and lives a holistic lifestyle began selling Shelley Says
+                    to horse trainers and friends who swore about its efficacy...so the wait is over, Shelley Says!
+                    is now available to you.
+                </p>
             </span>-->
-            <button class="btn more">Learn more</button>
             <button class="btn buy" onclick="clickBuyButton(event)">Buy: $29.99</button>
         </section>
-        <!--<footer>
-
-        </footer>-->
     </div>
     <link rel="stylesheet" href="style.css">
     <script src="shopify.js"></script>
     <script>
+        function toggleLearnMore() {
+            document.getElementById("product").classList.toggle("learn-more");
+        }
+
         function clickBuyButton(e) {
             window.frames["frame-product-8235973251"].document.getElementsByClassName("shopify-buy__btn")[0].click();
             // window.frames["frame-toggle"].document.getElementsByClassName("shopify-buy__cart-toggle")[0].click();
@@ -162,39 +171,41 @@
             }
         }
 
-        function parallaxV(el, triggerElem, speed, goalTop) {
-            var vh = (window.innerHeight || document.documentElement.clientHeight);
-            var diff = triggerElem.getBoundingClientRect().bottom - vh;
-            var easing = diff/(2*vh);
-            var speedScaledForPercentValues = speed / 10.24;
-            var diffWithSpeed = diff * speedScaledForPercentValues * easing;
-            el.style.top = (goalTop + diffWithSpeed) + "%";
-        }
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            (function() {
+                function parallaxV(el, triggerElem, speed, goalTop) {
+                    var vh = (window.innerHeight || document.documentElement.clientHeight);
+                    var diff = triggerElem.getBoundingClientRect().bottom - vh;
+                    var easing = diff/(2*vh);
+                    var speedScaledForPercentValues = speed / 10.24;
+                    var diffWithSpeed = diff * speedScaledForPercentValues * easing;
+                    el.style.top = (goalTop + diffWithSpeed) + "%";
+                }
 
-        function parallaxH(el, triggerElem, speed, goalRight) {
-            var vh = (window.innerHeight || document.documentElement.clientHeight);
-            var diff = triggerElem.getBoundingClientRect().bottom - vh;
-            var easing = diff/(3*vh);
-            var speedScaledForPercentValues = speed / 10.24;
-            var diffWithSpeed = diff * speedScaledForPercentValues * easing;
-            el.style.right = (goalRight + diffWithSpeed) + "%";
-        }
+                function parallaxH(el, triggerElem, speed, goalRight) {
+                    var vh = (window.innerHeight || document.documentElement.clientHeight);
+                    var diff = triggerElem.getBoundingClientRect().bottom - vh;
+                    var easing = diff/(3*vh);
+                    var speedScaledForPercentValues = speed / 10.24;
+                    var diffWithSpeed = diff * speedScaledForPercentValues * easing;
+                    el.style.right = (goalRight + diffWithSpeed) + "%";
+                }
 
-        (function() {
-            var lemonGrass = document.getElementById("lemon-grass");
-            var lemon = document.getElementById("lemon");
-            var peppermint = document.getElementById("peppermint");
-            var acv = document.getElementById("acv");
-            var eucalyptus = document.getElementById("eucalyptus");
-            var section = document.getElementById("product");
-            window.onscroll = function() {
-                parallaxV(lemonGrass, section, -2.5, 1);
-                parallaxV(eucalyptus, section, -1.3, 1.5);
-                parallaxV(peppermint, section, 2, 39);
-                parallaxH(acv, section, 3, 87);
-                parallaxH(lemon, section, -1.2, 1);
-            };
-        })();
+                var lemonGrass = document.getElementById("lemon-grass");
+                var lemon = document.getElementById("lemon");
+                var peppermint = document.getElementById("peppermint");
+                var acv = document.getElementById("acv");
+                var eucalyptus = document.getElementById("eucalyptus");
+                var section = document.getElementById("product");
+                window.onscroll = function() {
+                    parallaxV(lemonGrass, section, -2.5, 1);
+                    parallaxV(eucalyptus, section, -1.3, 1.5);
+                    parallaxV(peppermint, section, 2, 39);
+                    parallaxH(acv, section, 3, 87);
+                    parallaxH(lemon, section, -1.2, 1);
+                };   
+            })();
+        }
     </script>
     <script type="text/javascript" src="https://s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us15.list-manage.com","uuid":"9a1b2b8e340f4a89bf0751ed9","lid":"5bbbb680c5"}) })</script>
 </body>
