@@ -128,22 +128,23 @@ nav .buy-btn:hover {
  * MAIN
  */
 
-main {
+#main-image {
     /*height: 669px;*/
+    display: none;
     position: relative;
     padding-top: 65.33203125%; /* aspect ratio */
     background-image: url('images/main_bg.jpg');
     background-size: cover;
 }
 
-main .logo {
+#main-image .logo {
     position: absolute;
     width: 22.5%;
     top: 14%;
     left: 6.5%;
 }
 
-main .play-btn {
+#main-image .play-btn {
     position: absolute;
     width: 7.3%;
     padding-top: 7.3%;
@@ -156,32 +157,52 @@ main .play-btn {
 }
 
 @media screen and (max-width: 680px) {
-    main .play-btn {
+    #main-image .play-btn {
         width: 10%;
         padding-top: 10%;
         margin: 0 -5%;
     }
 }
 
-main .play-btn:hover {
+#main-image .play-btn:hover {
     opacity: 1;
     cursor: pointer;
 }
 
-main .bottle {
+#main-image .bottle {
     position: absolute;
     width: 40%;
     right: -5%;
     bottom: -6%;   
 }
 
-main legend {
+#main-image legend {
     position: absolute;
     right: 20.23925781%;
     top: 88.34080717%;
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
     text-align: right;
+}
+
+#main-video {
+    display: none;
+    position: relative;
+}
+
+#main-video .close-btn {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    color: #333;
+    border: none;
+    font-family: arial;
+    font-size: 1.9em;
+    cursor: pointer;
+}
+
+#main-image.active, #main-video.active {
+    display: block;
 }
 
 .about {
@@ -557,7 +578,51 @@ figure img:hover ~ .tooltip, figure figcaption:hover ~ .tooltip {
     background-color: #FF9C50;
 }
 
-#product .learn-more-box {
+@media screen and (min-width: 1024px) {
+    #product #learn-more-box {
+        bottom: 35%;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    #product .btn {
+        font-size: 1.8em;
+    }
+    #product .btn.see-ingredients {
+        font-size: 1.2em;
+    }
+    #product #learn-more-box {
+        font-size: 0.9em;
+    }
+}
+@media screen and (max-width: 480px) {
+    #product .btn {
+        font-size: 1.4em;
+    }
+    #product .btn.see-ingredients {
+        font-size: 1em;
+    }
+    #product #learn-more-box {
+        font-size: 0.7em;
+    }
+}
+@media screen and (max-width: 380px) {
+    #product .btn {
+        font-size: 1em;
+    }
+    #product .btn.see-ingredients {
+        font-size: 0.8em;
+    }
+    #product #learn-more-box {
+        font-size: 0.59em;
+    }
+}
+
+/*
+ * PRODUCT - LEARN MORE
+ */
+
+ #product #learn-more-box {
     position: absolute;
     padding: 2em;
     border-radius: 5px;
@@ -574,49 +639,16 @@ figure img:hover ~ .tooltip, figure figcaption:hover ~ .tooltip {
     transition: visibility 0s 2s linear, opacity 2s ease;
 }
 
-@media screen and (min-width: 1024px) {
-    #product .learn-more-box {
-        bottom: 35%;
-    }
+#product #learn-more-video {
+    position: absolute;
+    border-radius: 5px;
+    width: 60%;
+    right: 7%;
+    bottom: 30%;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s linear, opacity 2s ease;
 }
-
-@media screen and (max-width: 580px) {
-    #product .btn {
-        font-size: 1.8em;
-    }
-    #product .btn.see-ingredients {
-        font-size: 1.2em;
-    }
-    #product .learn-more-box {
-        font-size: 0.9em;
-    }
-}
-@media screen and (max-width: 480px) {
-    #product .btn {
-        font-size: 1.4em;
-    }
-    #product .btn.see-ingredients {
-        font-size: 1em;
-    }
-    #product .learn-more-box {
-        font-size: 0.7em;
-    }
-}
-@media screen and (max-width: 380px) {
-    #product .btn {
-        font-size: 1em;
-    }
-    #product .btn.see-ingredients {
-        font-size: 0.8em;
-    }
-    #product .learn-more-box {
-        font-size: 0.59em;
-    }
-}
-
-/*
- * PRODUCT - LEARN MORE
- */
 
 #product.learn-more .btn.learn-more {
     visibility: hidden;
@@ -646,12 +678,20 @@ figure img:hover ~ .tooltip, figure figcaption:hover ~ .tooltip {
     transition: left 2s 1s ease;
 }
 
-#product.learn-more .learn-more-box {
+#product.learn-more #learn-more-box.active {
     visibility: visible;
     opacity: 0.8;
     box-shadow: 0px 0px 15px 3px #888;
     transition: visibility 0s 1s linear, opacity 2s 2s ease;
 }
+
+#product.learn-more #learn-more-video.active {
+    visibility: visible;
+    opacity: 0.8;
+    box-shadow: 0px 0px 15px 3px #888;
+    transition: visibility 0s 1s linear, opacity 2s 2s ease;
+}
+
 
 /*
  * FOOTER

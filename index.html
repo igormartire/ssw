@@ -29,14 +29,18 @@
             <!-- Total: 409 -->
         </nav>
         <div>
-            <main>
+            <main id="main-image" class="active">
                 <!--<img class="logo" src="images/main_logo.png">-->
-                <!--<div class="play-btn"></div>-->
+                <div class="play-btn" onclick="playMainVideo()"></div>
                 <!--<img class="bottle" src="images/main_bottle.png">-->
                 <legend>
                     "A non-toxic, all-natural, and unique fly spray.
                     It's&nbsp;not&nbsp;only&nbsp;good&nbsp;for&nbsp;your&nbsp;horse&nbsp;—&nbsp;it's&nbsp;good&nbsp;for&nbsp;you,&nbsp;the&nbsp;rider."
                 </legend>
+            </main>
+            <main id="main-video">
+                <video id="main-video-obj" src="videos/our-story.mp4" width="100%" controls></video>
+                <a href="#" onclick="showMainImage()" class="close-btn">×</a>
             </main>
         </div>
         <!--<section class="subtitle">
@@ -46,6 +50,32 @@
                 you, the rider"
             </p>
         </section>-->
+        <section class="videos">
+            <a href="#">
+                <div class="video">
+                    <div class="img-frame">
+                        <img src="images/video2.jpeg">
+                    </div>
+                    <p>Comparison Video</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="video">
+                    <div class="img-frame">
+                        <img src="images/video1.jpeg">
+                    </div>
+                    <p>How To Use</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="video">
+                    <div class="img-frame">
+                        <img src="images/video3.jpeg">
+                    </div>
+                    <p>Our Message</p>
+                </div>
+            </a>
+        </section>
         <section class="about">
             <div class="wrapper">
                 <div class="left-col">
@@ -65,32 +95,6 @@
                 </div>
             </div>
         </section>
-        <!--<section class="videos">
-            <a href="#">
-                <div class="video">
-                    <div class="img-frame">
-                        <img src="images/video1.jpeg">
-                    </div>
-                    <p>How It Works!</p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="video">
-                    <div class="img-frame">
-                        <img src="images/video2.jpeg">
-                    </div>
-                    <p>Comparison Video</p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="video">
-                    <div class="img-frame">
-                        <img src="images/video3.jpeg">
-                    </div>
-                    <p>Product Video</p>
-                </div>
-            </a>
-        </section>-->
         <section id="product">
             <figure id="eucalyptus">
                 <figcaption>Eucalyptus</figcaption>
@@ -134,10 +138,9 @@
             </figure>
             <img class="fly-away" src="images/fly_away.png">
             <img class="bottle" src="images/product_bottle.png">
-            <button class="btn learn-more" onclick="toggleLearnMore()">Learn more</button>
-            <button class="btn see-ingredients" onclick="toggleLearnMore()">See ingredients</button>
-            <span class="learn-more-box">
-                <!--<h2>Shelley Says! Fly Away!</h2>-->
+            <button class="btn learn-more" onclick="learnMore()">Learn more</button>
+            <button class="btn see-ingredients" onclick="seeIngredients()">See the oils</button>
+            <!--<span id="learn-more-box">
                 <p>
                     All natural, made with five essential oils; citronella, lemon grass,
                     peppermint, eucalyptus, and lemon, no artificial chemicals, and 100% love.
@@ -146,16 +149,51 @@
                     to horse trainers and friends who swore about its efficacy...so the wait is over, Shelley Says!
                     is now available to you.
                 </p>
-            </span>
+            </span>-->
+            <video id="learn-more-video" class="active" src="videos/the-oils.mp4" controls></video>
             <button class="btn buy" onclick="clickBuyButton(event)">Buy: $29.99</button>
         </section>
     </div>
     <link rel="stylesheet" href="style.css">
     <script src="shopify.js"></script>
     <script>
-        function toggleLearnMore() {
-            document.getElementById("product").classList.toggle("learn-more");
+        function playLearnMoreVideo() {
+            document.getElementById("learn-more-video").play()
         }
+        function toggleActiveLearnMoreVideoOrBox() {
+            document.getElementById("learn-more-video").classList.toggle("active");
+            document.getElementById("learn-more-box").classList.toggle("active");
+        }
+        function restartLearnMoreVideo () {
+            document.getElementById("learn-more-video").currentTime = 0;
+        }
+        function learnMore() {
+            document.getElementById("product").classList.toggle("learn-more");
+            if (!document.getElementById("learn-more-video").classList.contains("active")) {
+                toggleActiveLearnMoreVideoOrBox();
+            }
+            setTimeout(playLearnMoreVideo, 1000);
+        }
+        function seeIngredients() {
+            document.getElementById("product").classList.toggle("learn-more");
+            document.getElementById("learn-more-video").pause();
+            setTimeout(restartLearnMoreVideo, 2000);
+        }
+        document.getElementById('learn-more-video').addEventListener('ended', seeIngredients, false);
+
+        function playMainVideo() {
+            document.getElementById("main-image").classList.toggle("active");
+            document.getElementById("main-video").classList.toggle("active");
+            document.getElementById("main-video-obj").play();
+        }
+        function showMainImage() {
+            document.getElementById("main-image").classList.toggle("active");
+            document.getElementById("main-video").classList.toggle("active");
+            document.getElementById("main-video-obj").pause();
+            document.getElementById("main-video-obj").currentTime = 0;
+        }
+        document.getElementById('main-video-obj').addEventListener('ended', showMainImage, false);
+
 
         function clickBuyButton(e) {
             window.frames["frame-product-8235973251"].document.getElementsByClassName("shopify-buy__btn")[0].click();
