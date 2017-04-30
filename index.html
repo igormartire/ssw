@@ -24,7 +24,7 @@
             <!-- 118 -->
             <!--<a style="width: 27%" href="#">Online Store</a>-->
             <button class="buy-btn" onclick="clickBuyButton(event)">Buy now: $29.99</button>
-            <a class="text" href="#">Contact us</a>
+            <a class="text" href="#zbwid-d7bf4537">Contact us</a>
             <a class="text" href="#">Our blog</a>
             <!-- Total: 409 -->
         </nav>
@@ -40,7 +40,7 @@
             </main>
             <main id="main-video">
                 <video id="main-video-obj" src="videos/our-story.mp4" width="100%" controls></video>
-                <a href="#" onclick="showMainImage()" class="close-btn">×</a>
+                <a onclick="showMainImage()" class="close-btn">×</a>
             </main>
         </div>
         <!--<section class="subtitle">
@@ -51,30 +51,29 @@
             </p>
         </section>-->
         <section class="videos">
-            <a href="#">
-                <div class="video">
-                    <div class="img-frame">
-                        <img src="images/video2.jpeg">
-                    </div>
-                    <p>Comparison Video</p>
+            <div class="video" onclick="showChildVideo(this)">
+                <div class="img-frame">
+                    <img src="images/video2.jpeg">
                 </div>
-            </a>
-            <a href="#">
-                <div class="video">
-                    <div class="img-frame">
-                        <img src="images/video1.jpeg">
-                    </div>
-                    <p>How To Use</p>
+                <p>Comparison Video</p>
+                <video src="videos/test.mp4" controls></video>
+            </div>
+            <div class="video" onclick="showChildVideo(this)">
+                <div class="img-frame">
+                    <img src="images/video1.jpeg">
                 </div>
-            </a>
-            <a href="#">
-                <div class="video">
-                    <div class="img-frame">
-                        <img src="images/video3.jpeg">
-                    </div>
-                    <p>Our Message</p>
+                <p>How To Use</p>
+                <video src="videos/how-to-use.mp4" controls></video>
+            </div>
+            <div class="video" onclick="showChildVideo(this)">
+                <div class="img-frame">
+                    <img src="images/video3.jpeg">
                 </div>
-            </a>
+                <p>Our Message</p>
+                <video src="videos/our-message.mp4" controls></video>
+            </div>
+            <div id="popup-video-overlay" onclick="closePopupVideo(this.parentNode)"></div>
+            <a id="popup-video-close-btn" onclick="closePopupVideo(this.parentNode)">×</a>
         </section>
         <section class="about">
             <div class="wrapper">
@@ -194,6 +193,32 @@
         }
         document.getElementById('main-video-obj').addEventListener('ended', showMainImage, false);
 
+        function showChildVideo(parent) {
+            var video = parent.getElementsByTagName("video")[0];
+            video.classList.toggle("active");
+            document.getElementById("popup-video-overlay").classList.toggle("active");
+            document.getElementById("popup-video-close-btn").classList.toggle("active");
+            video.play();
+        }
+
+        function closePopupVideo(parent) {
+            var videos = parent.getElementsByTagName("video");
+            var activeVideo;
+            for (var i = 0; i < videos.length; i++) {
+                if (videos[i].className === "active") {
+                    activeVideo = videos[i];
+                    break
+                }
+            }
+            document.av =  activeVideo;
+            if(activeVideo) {
+                activeVideo.pause();
+                activeVideo.currentTime = 0;
+                activeVideo.classList.toggle("active");
+            }
+            document.getElementById("popup-video-overlay").classList.toggle("active");
+            document.getElementById("popup-video-close-btn").classList.toggle("active");
+        }
 
         function clickBuyButton(e) {
             window.frames["frame-product-8235973251"].document.getElementsByClassName("shopify-buy__btn")[0].click();
@@ -245,5 +270,8 @@
         }
     </script>
     <script type="text/javascript" src="https://s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us15.list-manage.com","uuid":"9a1b2b8e340f4a89bf0751ed9","lid":"5bbbb680c5"}) })</script>
+    <script type="text/javascript">
+        (function(d,s,id){var z=d.createElement(s);z.type="text/javascript";z.id=id;z.async=true;z.src="//static.zotabox.com/5/1/517743581028cc82dfba82ed78661fcf/widgets.js";var sz=d.getElementsByTagName(s)[0];sz.parentNode.insertBefore(z,sz)}(document,"script","zb-embed-code"));
+    </script>
 </body>
 </html>
