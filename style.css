@@ -198,6 +198,11 @@ nav .buy-btn:hover {
     font-family: arial;
     font-size: 1.9em;
     cursor: pointer;
+    display: none;
+}
+
+#main-video:hover .close-btn {
+    display: block;
 }
 
 #main-image.active, #main-video.active {
